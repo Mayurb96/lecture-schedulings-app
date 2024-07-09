@@ -25,9 +25,12 @@ const CourseList = () => {
           setLectures(response.data);
           setLoading(false);
         } catch (error) {
-          if(error.response='Unauthorized'){
+          if(error.response==='Unauthorized'){
+            console.log(error);
             setError('You are not authorized to use this feature. Please contact Admin.')
           }else{
+            console.log(error);
+
             setError('Failed to fetch courses');
           }
           setLoading(false);
