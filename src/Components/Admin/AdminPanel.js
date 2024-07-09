@@ -102,7 +102,7 @@ const fetchLectures = async () => {
       {/* <button onClick={handleLogout}>Logout</button> */}
       {<AddCourseForm onCourseAdded={courseAdded}/>}
       {/* <AddInstructorForm onInstructorAdded={ instructorAdded } /> */}
-      {<AddscheduleForm onscheduleAdded={ scheduleAdded } />}
+      {<AddscheduleForm onscheduleAdded={ scheduleAdded } courses={courses} />}
 
       <h2>Courses</h2>
       {/* <ul>
