@@ -32,7 +32,7 @@ const AddCourseForm = ({ onCourseAdded }) => {
             image: base64Image
           };
 
-          const response = await axios.post('http://localhost:4000/api/courses/add', courseDataWithImage, { headers });
+          const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/courses/add', courseDataWithImage, { headers }); //http://localhost:4000
           console.log('Course added successfully:', response.data);
           onCourseAdded(response.data);
 
@@ -43,7 +43,7 @@ const AddCourseForm = ({ onCourseAdded }) => {
 
         reader.readAsDataURL(imageFile);
       } else {
-        const response = await axios.post('http://localhost:4000/api/courses/add', courseData, { headers });
+        const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/courses/add', courseData, { headers });
         console.log('Course added successfully:', response.data);
         onCourseAdded(response.data);
         setImageFile(null);

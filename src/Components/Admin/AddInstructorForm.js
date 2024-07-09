@@ -16,7 +16,7 @@ const AddInstructorForm = ({ onInstructorAdded }) => {
             'Content-type' : 'application/json'
         }      
         
-        const response = await axios.get('http://localhost:4000/api/courses/',{ headers });
+        const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/courses/',{ headers });
          setCourses(response.data);
         // setLoading(false);
       } catch (error) {
@@ -62,7 +62,7 @@ console.log(formattedDate)
     };
     console.log(postData)
 
-    const response = await axios.post('http://localhost:4000/api/instructors/add', postData, { headers });
+    const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/instructors/add', postData, { headers });
 
     console.log('Instructor added successfully:', response.data);
     onInstructorAdded(response.data)

@@ -32,7 +32,7 @@ const AdminPanel = () => {
             'Content-type' : 'application/json'
         }      
         
-        const response = await axios.get('http://localhost:4000/api/courses/',{ headers });
+        const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/courses/',{ headers });
         setCourses(response.data);
         setLoading(false);
       } catch (error) {
@@ -50,7 +50,7 @@ const AdminPanel = () => {
 //               'Content-type' : 'application/json'
 //           }      
           
-//           const response = await axios.get('http://localhost:4000/api/instructors/',{ headers });
+//           const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/instructors/',{ headers });
 //           setInstructors(response.data);
 //           setLoading(false);
 //         } catch (error) {
@@ -68,7 +68,7 @@ const fetchLectures = async () => {
           'Content-type' : 'application/json'
       }      
       
-      const response = await axios.get('http://localhost:4000/api/schedule/',{ headers });
+      const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/schedule/',{ headers });
       setLectures(response.data);
       setLoading(false);
     } catch (error) {
