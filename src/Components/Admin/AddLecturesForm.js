@@ -3,30 +3,30 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../App.css';
 
-const AddscheduleForm = ({ onscheduleAdded }) => {
+const AddscheduleForm = ({ onscheduleAdded, courses }) => {
   const [scheduleData, setscheduleData] = useState({ name: '', course: '', date: ''});
-  const [courses, setCourses] = useState([]);
+  // const [courses, setCourses] = useState(courses);
   const [instructors, setInstructors]= useState([])
   const [error, setError]=useState(null);
 
   useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const token=localStorage.getItem('token');
-        const headers={
-            'Authorization': `Bearer ${token}`,
-            'Content-type' : 'application/json'
-        }      
+    // const fetchCourses = async () => {
+    //   try {
+    //     const token=localStorage.getItem('token');
+    //     const headers={
+    //         'Authorization': `Bearer ${token}`,
+    //         'Content-type' : 'application/json'
+    //     }      
         
-        const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/courses/',{ headers });
-         setCourses(response.data);
-        // setLoading(false);
-      } catch (error) {
-         setError('Failed to fetch courses');
-        // setLoading(false);
-      }
-    };
-    fetchCourses();
+    //    // const response = await axios.get('http://localhost:4000/api/courses/',{ headers });
+    //      //setCourses(response.data);
+    //     // setLoading(false);
+    //   } catch (error) {
+    //      setError('Failed to fetch courses');
+    //     // setLoading(false);
+    //   }
+    // };
+    // fetchCourses();
     const fetchInstructors = async () => {
         try {
             const token=localStorage.getItem('token');
@@ -35,7 +35,7 @@ const AddscheduleForm = ({ onscheduleAdded }) => {
                 'Content-type' : 'application/json'
             }      
             
-            const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/instructors/',{ headers });
+            const response = await axios.get('http://localhost:4000/api/instructors/',{ headers });
             setInstructors(response.data);
             //setLoading(false);
         } catch (error) {
@@ -89,7 +89,7 @@ const onSubmit = async (e) => {
     };
     console.log(postData)
 
-    const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/schedule/add', postData, { headers });
+    const response = await axios.post('http://localhost:4000/api/schedule/add', postData, { headers });
 
     console.log('schedule added successfully:', response.data);
     onscheduleAdded(response.data)

@@ -20,7 +20,7 @@ const CourseList = () => {
             'Content-type': 'application/json'
           };
           const id = user._id;
-          const response = await axios.post(`https://lecture-schedule-backend.vercel.app/api/schedule/${id}`, user,{ headers });//https://lecture-schedule-backend.vercel.app/
+          const response = await axios.post(`http://localhost:4000/api/schedule/${id}`, user,{ headers });//http://localhost:4000/
           console.log(response)
           setLectures(response.data);
           setLoading(false);

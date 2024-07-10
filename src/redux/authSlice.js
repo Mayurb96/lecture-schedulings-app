@@ -6,7 +6,7 @@ export const login = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       console.log(userData)
-      const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/instructors/login', userData);
+      const response = await axios.post('http://localhost:4000/api/instructors/login', userData);
       localStorage.setItem('token', response.data.token);
       console.log(response);
       return response.data;

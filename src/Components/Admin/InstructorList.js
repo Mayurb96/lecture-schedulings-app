@@ -15,7 +15,7 @@ const InstructorList = () => {
             'Content-type' : 'application/json'
         }      
         
-        const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/instructors/',{ headers });
+        const response = await axios.get('http://localhost:4000/api/instructors/',{ headers });
         setInstructors(response.data);
         setLoading(false);
       } catch (error) {
