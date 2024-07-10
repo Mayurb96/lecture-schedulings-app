@@ -18,7 +18,7 @@ const AddscheduleForm = ({ onscheduleAdded, courses }) => {
     //         'Content-type' : 'application/json'
     //     }      
         
-    //    // const response = await axios.get('http://localhost:4000/api/courses/',{ headers });
+    //    // const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/courses/',{ headers });
     //      //setCourses(response.data);
     //     // setLoading(false);
     //   } catch (error) {
@@ -35,7 +35,7 @@ const AddscheduleForm = ({ onscheduleAdded, courses }) => {
                 'Content-type' : 'application/json'
             }      
             
-            const response = await axios.get('http://localhost:4000/api/instructors/',{ headers });
+            const response = await axios.get('https://lecture-schedule-backend.vercel.app/api/instructors/',{ headers });
             setInstructors(response.data);
             //setLoading(false);
         } catch (error) {
@@ -89,7 +89,7 @@ const onSubmit = async (e) => {
     };
     console.log(postData)
 
-    const response = await axios.post('http://localhost:4000/api/schedule/add', postData, { headers });
+    const response = await axios.post('https://lecture-schedule-backend.vercel.app/api/schedule/add', postData, { headers });
 
     console.log('schedule added successfully:', response.data);
     onscheduleAdded(response.data)
